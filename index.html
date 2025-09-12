@@ -43,6 +43,11 @@
             overflow: hidden;
         }
 
+        .photo-container {
+    flex: 0 0 200px;
+    position: relative;
+        }
+
         header {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
@@ -433,21 +438,20 @@
             </ul>
         </nav>
         
-        <div class="content">
-            <div id="home" class="section active">
-                <div class="profile-section">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">
-                            <img src="capu photo2.jpg" alt="Capucine" class="profile-photo">
-                        </div>
-                    </div>
-                    <div class="bio-content">
+<div class="content">
+    <div id="home" class="section active">
+        <div class="profile-section">
+            <div class="photo-container">
+                <img src="capu photo2.jpg" alt="Capucine" class="profile-photo">
+            </div>
+            <div class="bio-content">
+                
                         <h2>About Me</h2>
                         <p>
-                            I am a PhD candidate at Paris Dauphine University PSL under the supervision of Guillaume Daudin and Marion Mercier. 
-                            My research mainly focuses on conflict economics and economic history. 
-                            Specifically, my thesis studies the links between social capital, conflict, and innovation. 
-                            I am particularly interested in the French Revolution, machine learning, and quantitative text analysis methods.
+                            I am a PhD candidate at Paris Dauphine University PSL under the supervision of Guillaume Daudin and Marion Mercier.<br>
+                            My research mainly focuses on conflict economics and economic history.<br>
+                            Specifically, my thesis studies the links between social capital, conflict, and innovation.<br>
+                            I am particularly interested in the French Revolution, machine learning, and quantitative text analysis methods.<br>
                             Please take a look at the pre-analysis plan of my main project : <a href="PAP.pdf" target="_blank">here</a>.
                         </p>
                     </div>
@@ -516,27 +520,6 @@
             linkElement.classList.add('active');
         }
         
-        // Photo placeholder management
-        document.querySelector('.photo-placeholder').addEventListener('click', function() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.onchange = function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        const placeholder = document.querySelector('.photo-placeholder');
-                        placeholder.style.backgroundImage = `url(${event.target.result})`;
-                        placeholder.style.backgroundSize = 'cover';
-                        placeholder.style.backgroundPosition = 'center';
-                        placeholder.innerHTML = '';
-                    };
-                    reader.readAsDataURL(file);
-                }
-            };
-            input.click();
-        });
     </script>
 </body>
 </html>
